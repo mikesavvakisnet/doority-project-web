@@ -11,12 +11,14 @@ router.get('/', function (req, res, next) {
     if (!req.session.logged) {
         return res.redirect('/');
     }
-    res.render('user/changepassword', {logged: req.session.logged});
+    res.render('user/misc', {logged: req.session.logged});
 });
 
 
 router.post('/', function (req, res, next) {
-
+    if (!req.session.logged) {
+        return res.redirect('/');
+    }
     // Create salty hashy password.
     bcrypt.genSalt(10, function (err, salt) {
         bcrypt.hash(req.body.user_password, salt, function (err, hash) {
