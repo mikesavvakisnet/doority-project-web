@@ -36,6 +36,7 @@ const registerRouter = require('./routes/register');
 const memberIndexRouter = require('./routes/user/index');
 const membersIndexRouter = require('./routes/user/members');
 const changePassRouter = require('./routes/user/changepassword');
+const miscRouter = require('./routes/user/misc');
 
 const doorApiRouter = require('./routes/api/v1/door');
 
@@ -61,6 +62,7 @@ app.use('/', indexRouter);
 app.use('/user', memberIndexRouter);
 app.use('/user/members', membersIndexRouter);
 app.use('/user/changepassword', changePassRouter);
+app.use('/user/misc', miscRouter);
 
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
