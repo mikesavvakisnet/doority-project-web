@@ -32,9 +32,11 @@ router.post('/', function(req, res, next) {
                     req.session.user = {id: result.rows[0].id};
                     return res.redirect('/user');
                 }else{
-                    return res.redirect('/');
+                    return res.render('login', {logged: req.session.logged, message: "Your login credentials are incorrect."});
                 }
             });
+        }else{
+            return res.render('login', {logged: req.session.logged, message: "Your login credentials are incorrect."});
         }
 
     });
