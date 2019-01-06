@@ -42,7 +42,7 @@ const miscRouter = require('./routes/user/misc');
 
 const doorApiRouter = require('./routes/api/v1/door');
 
-tasks.task.start();
+tasks.exitReminder.start();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
