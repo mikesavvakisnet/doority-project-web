@@ -8,6 +8,8 @@ const pg = require('pg');
 const session = require('express-session');
 const pgSession = require('connect-pg-simple')(session);
 
+const tasks = require('./workers/forgotExit.space');
+
 const app = express();
 
 const pgPool = new pg.Pool({
@@ -39,6 +41,8 @@ const changePassRouter = require('./routes/user/changepassword');
 const miscRouter = require('./routes/user/misc');
 
 const doorApiRouter = require('./routes/api/v1/door');
+
+tasks.task.start();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
